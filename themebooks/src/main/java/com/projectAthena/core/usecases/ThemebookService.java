@@ -4,14 +4,15 @@ import com.projectAthena.core.entities.TagQuestion;
 import com.projectAthena.core.entities.ThemeConcept;
 import com.projectAthena.core.entities.ThemeImprovement;
 import com.projectAthena.core.entities.Themebook;
-import com.projectAthena.core.enums.ThemeType;
 import com.projectAthena.core.usecases.dto.TagQuestionDto;
 import com.projectAthena.core.usecases.dto.ThemeImprovementDto;
 import com.projectAthena.core.usecases.dto.ThemebookDto;
 import lombok.val;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ThemebookService {
     private IThemebookRepository themebookRepository;
@@ -46,20 +47,83 @@ public class ThemebookService {
                 .identityMysteryOptions(themebookDto.getIdentityMysteryOptions())
                 .titleExamples(themebookDto.getTitleExamples())
                 .crewRelationships(themebookDto.getCrewRelationships())
-                .tagQuestions(builTagQuestions(themebookDto.getTagQuestions()))
+                .tagQuestions(buildTagQuestions(themebookDto.getTagQuestions()))
                 .improvements(buildImprovements(themebookDto.getImprovements()))
                 .build();
     }
 
-    private Collection<ThemeImprovement> buildImprovements(List<ThemeImprovementDto> improvements) {
-        return null;
+    private Collection<ThemeImprovement> buildImprovements(List<ThemeImprovementDto> improvementDtos) {
+        return improvementDtos.stream()
+                .map(imp -> ThemeImprovement.builder()
+                        .id(imp.getId())
+                        .title(imp.getTitle())
+                        .description(imp.getDescription())
+                        .build())
+                .collect(Collectors.toList());
     }
 
-    private Collection<TagQuestion> builTagQuestions(List<TagQuestionDto> tagQuestions) {
-        return  null;
+    private Collection<TagQuestion> buildTagQuestions(List<TagQuestionDto> tagQuestionDtos) {
+        return tagQuestionDtos.stream()
+                .map(question -> TagQuestion.builder()
+                        .id(question.getId())
+                        .type(question.getType())
+                        .question(question.getQuestion())
+                        .answers(question.getAnswers())
+                        .build())
+                .collect(Collectors.toList());
     }
 
-    private void Validation(ThemebookDto themebookDto) throws Exception{
+    private void Validation(ThemebookDto themebookDto) throws Exception {
+        val domainExceptions = new ArrayList<DomainException>();
+
+        if (isNullOrWhiteSpace(themebookDto.getName())) {
+            domainExceptions.add(new DomainException());
+        }
+
+        if (isNullOrWhiteSpace(themebookDto.getDescription())) {
+            domainExceptions.add(new DomainException());
+        }
+
+        if (themebookDto.getConcept() == null) {
+            domainExceptions.add(new DomainException());
+        }
+
+        if (themebookDto.getType() == null) {
+            domainExceptions.add(new DomainException());
+        }
+
+        if (areAllTagQuestionsValid(themebookDto)) {
+            domainExceptions.add(new DomainException());
+        }
+
+        if(areAllImprovementsValid(themebookDto)) {
+            domainExceptions.add(new DomainException());
+        }
+
+        if(domainExceptions.isEmpty() == false) {
+            throw new Exception(domainExceptions.stream().map(Throwable::getMessage).collect(Collectors.joining("\n\r")));
+        }
+
+    }
+
+    private static boolean areAllImprovementsValid(ThemebookDto themebookDto) {
+        return  themebookDto.getImprovements().stream()
+                .anyMatch(improvement -> isNullOrWhiteSpace(improvement.getTitle())
+                        || isNullOrWhiteSpace(improvement.getDescription()));
+    }
+
+    private static boolean areAllTagQuestionsValid(ThemebookDto themebookDto) {
+        return themebookDto.getTagQuestions().stream()
+                .anyMatch(question -> isNullOrWhiteSpace(question.getQuestion())
+                        || areAllAnswerValid(question));
+    }
+
+    private static boolean areAllAnswerValid(TagQuestionDto question) {
+        return question.getAnswers().stream().anyMatch(ThemebookService::isNullOrWhiteSpace);
+    }
+
+    private static boolean isNullOrWhiteSpace(String theString) {
+        return theString.trim().isEmpty();
     }
 
 
