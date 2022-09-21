@@ -15,18 +15,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ThemebookService {
-    private IThemebookRepository themebookRepository;
+    private final IThemebookRepository themebookRepository;
 
     public ThemebookService(IThemebookRepository themebookRepository) {
         this.themebookRepository = themebookRepository;
     }
 
-    public Themebook create(ThemebookDto themebookDto) throws CodeAlreadyExistException {
+    public Themebook create(ThemebookDto themebookDto) throws Exception {
         if (themebookRepository.isUniqueByCode(themebookDto.getName())) {
             throw new CodeAlreadyExistException();
         }
 
-        //Validation(themebookDto);
+        validation(themebookDto);
 
         var themebook = buildThemebook(themebookDto);
 
@@ -73,7 +73,7 @@ public class ThemebookService {
                 .collect(Collectors.toList());
     }
 
-    private void Validation(ThemebookDto themebookDto) throws Exception {
+    private void validation(ThemebookDto themebookDto) throws Exception {
         var domainExceptions = new ArrayList<DomainException>();
 
         if (isNullOrWhiteSpace(themebookDto.getName())) {
@@ -101,7 +101,7 @@ public class ThemebookService {
         }
 
         if(domainExceptions.isEmpty() == false) {
-            throw new Exception(domainExceptions.stream().map(Throwable::getMessage).collect(Collectors.joining("\n\r")));
+            throw new DomainException(domainExceptions.stream().map(Throwable::getMessage).collect(Collectors.joining("\n\r")));
         }
 
     }

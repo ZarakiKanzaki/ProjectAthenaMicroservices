@@ -1,0 +1,8 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PointlessBooleanExpression" enabled="true" level="TEXT ATTRIBUTES" enabled_by_default="true" editorAttributes="NOT_USED_ELEMENT_ATTRIBUTES">
+      <option name="m_ignoreExpressionsContainingConstants" value="true" />
+    </inspection_tool>
+  </profile>
+</component>

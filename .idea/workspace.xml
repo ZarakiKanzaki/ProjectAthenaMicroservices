@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="25bf0ebd-f291-4dd5-82f2-141da9b26a83" name="Changes" comment="minor refactor">
+      <change beforePath="$PROJECT_DIR$/themebooks/src/main/java/com/projectAthena/core/usecases/DomainException.java" beforeDir="false" afterPath="$PROJECT_DIR$/themebooks/src/main/java/com/projectAthena/core/usecases/DomainException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themebooks/src/main/java/com/projectAthena/core/usecases/ThemebookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/themebooks/src/main/java/com/projectAthena/core/usecases/ThemebookService.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2EzcEBxaI3sg24OKHF7vtXcama7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "jdk.selected.JAVA_MODULE": "18",
+    "last_opened_file_path": "/Users/davidedonadio/Development/repos/ProjectAthenaMicroservices/themebooks/src/main/java/com/projectAthena/core/usecases/dto",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "Errors"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.projectAthena.core.usecases" />
+      <recent name="com.projectAthena.core.entities" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/themebooks/src/main/java/com/projectAthena/core/usecases/dto" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="25bf0ebd-f291-4dd5-82f2-141da9b26a83" name="Changes" comment="" />
+      <created>1663601740747</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1663601740747</updated>
+    </task>
+    <task id="LOCAL-00001" summary="added two modules to the project representing the microservice we are going to include in the project">
+      <created>1663601893469</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1663601893469</updated>
+    </task>
+    <task id="LOCAL-00002" summary="starting the themebook microservice following how I think should be represented">
+      <created>1663688777685</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1663688777685</updated>
+    </task>
+    <task id="LOCAL-00003" summary="finished domain side of themebook">
+      <created>1663751016579</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1663751016579</updated>
+    </task>
+    <task id="LOCAL-00004" summary="introduced full validation">
+      <created>1663764016231</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1663764016231</updated>
+    </task>
+    <task id="LOCAL-00005" summary="minor refactor">
+      <created>1663767519744</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1663767519744</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added two modules to the project representing the microservice we are going to include in the project" />
+    <MESSAGE value="starting the themebook microservice following how I think should be represented" />
+    <MESSAGE value="finished domain side of themebook" />
+    <MESSAGE value="introduced full validation" />
+    <MESSAGE value="minor refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor refactor" />
+  </component>
+</project>
