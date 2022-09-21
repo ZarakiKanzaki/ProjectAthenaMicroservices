@@ -1,5 +1,7 @@
 package com.projectAthena.core.enums;
 
+import java.util.EnumSet;
+
 public enum ThemeType {
 
     Mythos((short)1,"Mythos"),
@@ -7,7 +9,6 @@ public enum ThemeType {
     Mist((short)3,"Mist"),
     Crew((short)4,"Crew"),
     Extra((short)5,"Extra");
-
 
     private final short id;
     private final String name;
@@ -22,8 +23,6 @@ public enum ThemeType {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
 }
