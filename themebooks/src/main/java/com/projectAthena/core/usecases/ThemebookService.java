@@ -7,7 +7,7 @@ import com.projectAthena.core.entities.Themebook;
 import com.projectAthena.core.usecases.dto.TagQuestionDto;
 import com.projectAthena.core.usecases.dto.ThemeImprovementDto;
 import com.projectAthena.core.usecases.dto.ThemebookDto;
-import lombok.val;
+import lombok.var;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -21,14 +21,14 @@ public class ThemebookService {
         this.themebookRepository = themebookRepository;
     }
 
-    public Themebook Create(ThemebookDto themebookDto) throws CodeAlreadyExistException {
+    public Themebook create(ThemebookDto themebookDto) throws CodeAlreadyExistException {
         if (themebookRepository.isUniqueByCode(themebookDto.getName())) {
             throw new CodeAlreadyExistException();
         }
 
         //Validation(themebookDto);
 
-        val themebook = buildThemebook(themebookDto);
+        var themebook = buildThemebook(themebookDto);
 
         themebookRepository.add(themebook);
         themebookRepository.saveChanges();
@@ -74,7 +74,7 @@ public class ThemebookService {
     }
 
     private void Validation(ThemebookDto themebookDto) throws Exception {
-        val domainExceptions = new ArrayList<DomainException>();
+        var domainExceptions = new ArrayList<DomainException>();
 
         if (isNullOrWhiteSpace(themebookDto.getName())) {
             domainExceptions.add(new DomainException());
